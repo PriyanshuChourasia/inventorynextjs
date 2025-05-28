@@ -1,6 +1,4 @@
-"use client";
-
-import { useGetDashboardMetricsQuery } from "@/redux/state/api";
+import { useGetDashboardMetricsQuery } from "@/state/api";
 import { TrendingUp } from "lucide-react";
 import React, { useState } from "react";
 import {
@@ -13,7 +11,7 @@ import {
   YAxis,
 } from "recharts";
 
-const   CardSalesSummary = () => {
+const CardSalesSummary = () => {
   const { data, isLoading, isError } = useGetDashboardMetricsQuery();
   const salesData = data?.salesSummary || [];
 

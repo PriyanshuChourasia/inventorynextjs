@@ -1,9 +1,8 @@
-"use client";
+import { useGetDashboardMetricsQuery } from "@/state/api";
 import { ShoppingBag } from "lucide-react";
 import React from "react";
+import Rating from "../(components)/Rating";
 import Image from "next/image";
-import Rating from "../Rating";
-import { useGetDashboardMetricsQuery } from "@/redux/state/api";
 
 const CardPopularProducts = () => {
   const { data: dashboardMetrics, isLoading } = useGetDashboardMetricsQuery();
@@ -26,7 +25,7 @@ const CardPopularProducts = () => {
               >
                 <div className="flex items-center gap-3">
                   {/* <Image
-                    src={`http://localhost:8007/api/product${
+                    src={`https://s3-inventorymanagement.s3.us-east-2.amazonaws.com/product${
                       Math.floor(Math.random() * 3) + 1
                     }.png`}
                     alt={product.name}
