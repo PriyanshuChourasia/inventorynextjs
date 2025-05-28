@@ -1,11 +1,19 @@
-import {createApi,fetchBaseQuery} from "@reduxjs/toolkit/query";
+import {createApi,fetchBaseQuery} from "@reduxjs/toolkit/query/react";
+import { IDashboardMetrics } from "../interface/DashboardMetrics";
 
 
 export const api  = createApi({
     baseQuery: fetchBaseQuery({baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL}),
     reducerPath: "api",
-    tagTypes: [],
-    endpoints:(builder) =>({}),
+    tagTypes: ["DashboardMetrics"],
+    endpoints:(builder) =>({
+        getDashboardMetrics: builder.query<IDashboardMetrics,void>({
+            query:() => "/dashboard",
+            providesTags: ["DashboardMetrics"]
+        }),
+    }),
 });
 
-export const {} = api;
+export const {
+    useGetDashboardMetricsQuery,
+} = api;
